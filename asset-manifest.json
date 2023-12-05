@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/currensy-converter-react/static/css/main.51a764e5.css",
-    "main.js": "/currensy-converter-react/static/js/main.1c581bf8.js",
-    "static/js/787.949da34c.chunk.js": "/currensy-converter-react/static/js/787.949da34c.chunk.js",
-    "static/media/Banknotes-world.jpg": "/currensy-converter-react/static/media/Banknotes-world.1626c52023b9c4080c61.jpg",
-    "index.html": "/currensy-converter-react/index.html",
-    "main.51a764e5.css.map": "/currensy-converter-react/static/css/main.51a764e5.css.map",
-    "main.1c581bf8.js.map": "/currensy-converter-react/static/js/main.1c581bf8.js.map",
-    "787.949da34c.chunk.js.map": "/currensy-converter-react/static/js/787.949da34c.chunk.js.map"
+    "main.css": "/currency-converter-react/static/css/main.477a0c77.css",
+    "main.js": "/currency-converter-react/static/js/main.63c1cdd2.js",
+    "static/js/787.3ec21042.chunk.js": "/currency-converter-react/static/js/787.3ec21042.chunk.js",
+    "static/media/Banknotes-world.jpg": "/currency-converter-react/static/media/Banknotes-world.1626c52023b9c4080c61.jpg",
+    "index.html": "/currency-converter-react/index.html",
+    "main.477a0c77.css.map": "/currency-converter-react/static/css/main.477a0c77.css.map",
+    "main.63c1cdd2.js.map": "/currency-converter-react/static/js/main.63c1cdd2.js.map",
+    "787.3ec21042.chunk.js.map": "/currency-converter-react/static/js/787.3ec21042.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.51a764e5.css",
-    "static/js/main.1c581bf8.js"
+    "static/css/main.477a0c77.css",
+    "static/js/main.63c1cdd2.js"
   ]
 }
