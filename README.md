@@ -1,5 +1,5 @@
 # Currency Converter
-The subject of the project is a currency converter. The calculator allows you to convert the amount in Polish currency to any currency of your choice.<br>Here is a working live Demo -> [CLICK HERE](https://brzozowskiszymon.github.io/currency-converter-react/)
+The subject of the project is a currency converter. The calculator allows you to convert the amount in Polish currency to any currency of your choice.<br>Here is a working live Demo -> [CLICK HERE](https://brzozowskiszymon.github.io/currensy-converter-react/)
  
 ## Table of Contents
 * [Description](#description)
