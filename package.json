@@ -1,8 +1,8 @@
 {
-  "name": "curensy-converter",
+  "name": "curency-converter",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://brzozowskiszymon.github.io/curensy-converter",
+  "homepage": "https://brzozowskiszymon.github.io/currensy-converter-react/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
