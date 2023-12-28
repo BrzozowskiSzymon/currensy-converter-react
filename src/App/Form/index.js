@@ -13,13 +13,13 @@ export const Form = ({ calculateResult, result }) => {
     }
 
     return (
-        <h1
-            className="container__header">
-            Kantor Online
-        </h1>,
         <form
             className="form"
             onSubmit={onSubmit}>
+            <h1
+                className="container__header">
+                Kantor Online
+            </h1>
             <p>
                 <label>
                     <span className="form__labelText">
