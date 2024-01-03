@@ -12,7 +12,7 @@ The subject of the project is a currency converter. The calculator allows you to
 
 
 ## Description
-This website provides a currency converter. It is very easy to use. In the first gap, enter the amount of money (in Polish zlotys). Then you can choose one of four currencies. After clicking the button, you will receive the entered amount converted to the selected currency.
+This website provides a currency converter. Information about current local date ia at the top right. Aplication is very easy to use. In the first gap, enter the amount of money (in Polish zlotys). Then you can choose one of four currencies. After clicking the button, you will receive the entered amount converted to the selected currency.
 
 ## Technologies Used
 - HTML
@@ -25,7 +25,7 @@ This website provides a currency converter. It is very easy to use. In the first
 - React
 
 ## Gif
-![currencyConverter1](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHQzeDFvbXB5MzI0eXMzang3aXhuZnhjYnVrbHAwbDJ1OGxoeGRreSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/F2nEOx2clBdqis2qrR/giphy.gif)
+![currencyConverter1](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2djdTJlN2JwOTMxZXhjM3V5OXdmcHltb3V2bzB2b3ZiMzRqZXNleCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uC8p4g851d7bxlN3YX/giphy.gif)
 
 ## Project Status
 Project is in progress and it is the result of learning programming.
