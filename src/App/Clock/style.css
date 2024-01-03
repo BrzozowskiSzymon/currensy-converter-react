@@ -1,0 +1,5 @@
+.clock {
+    text-align: right;
+    font-family: monospace;
+    color: hsl(271, 69%, 50%);
+}
