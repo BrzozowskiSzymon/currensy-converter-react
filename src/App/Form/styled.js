@@ -38,26 +38,34 @@ export const Button = styled.button`
     width: 558px;
     transition: all 0.5s;
     cursor: pointer;
+    display: inline-block;
+    position: relative;
 
     &:hover {
         filter: brightness(110%);
+        padding-right: 24px;
+        padding-left:8px;
+        &:after {
+            content: '»';
+            position: absolute;
+            opacity: 0;  
+            top: 14px;
+            right: -20px;
+            transition: 0.5s;
+        }
     }
 
-    &:hover span {
-        cursor: pointer;
-        display: inline-block;
-        position: relative;
-        transition: 0.5s;
+    &:hover::after {
+        opacity: 1;
+        right: 10px;
+        transition: all 0.5s;
+    cursor: pointer;
+    
     }
 
-    &:hover span:after {
-        content: "\00bb";
-        position: absolute;
-        opacity: 0;
-        top: 0;
-        right: -20px;
-        transition: 0.5s;
-    }
+    
+
+    
 
     &:active {
         filter: brightness(120%);
