@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.form`
+export const StyleForm = styled.form`
     display: block;
     margin-top: 0em;
     text-align: center;

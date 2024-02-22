@@ -3,23 +3,23 @@ import background from "./Banknotes-world.jpg"
 
 export const GlobalStyle = createGlobalStyle`
     html {
-    box-sizing: border-box;
+        box-sizing: border-box;
     }
 
     *,
     ::after,
     ::before {
-    box-sizing: inherit;
+        box-sizing: inherit;
     }
 
     #root {
-    font-family: 'Dosis', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-image: url("${background}");
-    background-size: cover;
-    background-position: center;
+        font-family: 'Dosis', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-image: url("${background}");
+        background-size: cover;
+        background-position: center;
     }
 `;

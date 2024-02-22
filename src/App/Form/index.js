@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { currencies } from "../currencies";
 import { Result } from "./Result";
 import { 
-    Wrapper,
+    StyleForm,
     Button,
     Field,
     Header,
@@ -20,7 +20,7 @@ export const Form = ({ calculateResult, result }) => {
     }
 
     return (
-        <Wrapper
+        <StyleForm
             onSubmit={onSubmit}>
             <Header>
                 Kantor Online
@@ -75,6 +75,6 @@ export const Form = ({ calculateResult, result }) => {
             </p>
 
             <Result result={result} />
-        </Wrapper >
+        </StyleForm >
     );
 };
