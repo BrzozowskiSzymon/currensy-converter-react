@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { currencies } from "../currencies";
 import { Result } from "./Result";
-import "./style.css";
+import { 
+    Wrapper,
+    Button,
+    Field,
+    Header,
+    Info,
+    LabelText, 
+} from "./styled";
 
 export const Form = ({ calculateResult, result }) => {
     const [currency, setCurrency] = useState(currencies[0].short);
@@ -13,19 +20,17 @@ export const Form = ({ calculateResult, result }) => {
     }
 
     return (
-        <form
-            className="form"
+        <Wrapper
             onSubmit={onSubmit}>
-            <h1
-                className="container__header">
+            <Header>
                 Kantor Online
-            </h1>
+            </Header>
             <p>
                 <label>
-                    <span className="form__labelText">
+                    <LabelText>
                         Kwota zł :
-                    </span>
-                    <input
+                    </LabelText>
+                    <Field
                         value={amount}
                         onChange={({ target }) => setAmount(target.value)}
                         placeholder="Wpisz kwote"
@@ -39,11 +44,10 @@ export const Form = ({ calculateResult, result }) => {
             </p>
             <p>
                 <label>
-                    <span className="form__labelText">
+                    <LabelText>
                         Waluta :
-                    </span>
-                    <select
-                        className="form__field"
+                    </LabelText>
+                    <Field
                         value={currency}
                         onChange={({ target }) => setCurrency(target.value)}
                     >
@@ -55,22 +59,21 @@ export const Form = ({ calculateResult, result }) => {
                                 {currency.name}
                             </option>
                         )))}
-                    </select>
+                    </Field>
                 </label>
             </p>
             <p>
-                <button
-                    className="form__button">
+                <Button>
                     <span>Przelicz </span>
-                </button>
+                </Button>
             </p>
-            <p className="form__info">
+            <Info>
                 Aktalne kursy walut ze strony nbp.pl z dnia 2023-08-16
-            </p>
-            <p className="form__result"><strong></strong>
+            </Info>
+            <p><strong></strong>
             </p>
 
             <Result result={result} />
-        </form >
+        </Wrapper >
     );
 };
