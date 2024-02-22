@@ -31,7 +31,7 @@ export const Button = styled.button`
     border-radius: 4px;
     background-color: ${({ theme }) => theme.color.purple};
     border: none;
-    color: #ffffff;
+    color: ${({ theme }) => theme.color.white};
     text-align: center;
     font-size: 28px;
     padding: 20px;

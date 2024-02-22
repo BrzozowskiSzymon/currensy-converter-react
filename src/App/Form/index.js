@@ -48,6 +48,7 @@ export const Form = ({ calculateResult, result }) => {
                         Waluta :
                     </LabelText>
                     <Field
+                        as="select"
                         value={currency}
                         onChange={({ target }) => setCurrency(target.value)}
                     >
