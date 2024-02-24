@@ -28,48 +28,46 @@ export const Field = styled.input`
 `
 
 export const Button = styled.button`
-    border-radius: 4px;
-    background-color: ${({ theme }) => theme.color.purple};
-    border: none;
-    color: ${({ theme }) => theme.color.white};
-    text-align: center;
-    font-size: 28px;
-    padding: 20px;
-    width: 558px;
-    transition: all 0.5s;
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
+  border-radius: 4px;
+  background-color: hsl(271, 69%, 50%);
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 558px;
+  transition: all 0.5s;
+  cursor: pointer;
 
-    &:hover {
-        filter: brightness(110%);
-        padding-right: 24px;
-        padding-left:8px;
-        &:after {
-            content: '»';
-            position: absolute;
-            opacity: 0;  
-            top: 14px;
-            right: -20px;
-            transition: 0.5s;
-        }
-    }
+  &:active {
+  background-color: hsl(271, 69%, 40%);
+}
 
-    &:hover::after {
-        opacity: 1;
-        right: 10px;
-        transition: all 0.5s;
-    cursor: pointer;
-    
-    }
+span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
 
-    
+  &:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+}
 
-    
+&:hover span {
+  padding-right: 25px;
 
-    &:active {
-        filter: brightness(120%);
-    }
+  &:after {
+  opacity: 1;
+  right: 0;
+}
+}
+
 
     
 `;
