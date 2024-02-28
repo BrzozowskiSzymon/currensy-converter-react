@@ -9,7 +9,7 @@ export const useRatesData = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://api.currencyapi.com/v3/latest?apikey=cur_live_cbCeMWO3fFLv8EUHGIQcJFq3vsydTNKYzJIRjrIj&currencies=EUR%2CUSD%2CCAD&base_currency=PLN"
+          "https://api.currencyapi.com/v3/latest?apikey=cur_live_QNxWYi13sgQ86Cc0B4nQPiVYcJ1eUksgf7A2SDJC"
         );
 
         if (!response.ok) {
