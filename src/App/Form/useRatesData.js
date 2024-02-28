@@ -1,36 +1,29 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { fetchRatesData } from "./fetchRatesData.js";
 
 export const useRatesData = () => {
-  const [ratesData, setRatesData] = useState({
-    state: "loading",
-  });
+	const [ratesData, setRatesData] = useState({
+		status: "loading",
+	});
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://api.currencyapi.com/v3/latest?apikey=cur_live_QNxWYi13sgQ86Cc0B4nQPiVYcJ1eUksgf7A2SDJC"
-        );
+	const getCurrenciesRates = async () => {
+		try {
+			const { meta, data} = await fetchRatesData();
 
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
+			setRatesData({
+				status: "success",
+				meta,
+				data,
+			});
 
-        const { data } = await response.json();
+		} catch (error) {
+			setRatesData({ status: "error" });
+		}
+	};
 
-        setRatesData({
-          state: "success",
-          data,
-        });
-      } catch {
-        setRatesData({
-          state: "error",
-        });
-      }
-    };
+	useEffect(() => {
+		setTimeout(getCurrenciesRates, 1000);
+	}, []);
 
-    setTimeout(fetchData, 1000);
-  }, []);
-
-  return ratesData;
+	return ratesData;
 };

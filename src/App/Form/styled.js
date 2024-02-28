@@ -72,16 +72,6 @@ export const Header = styled.h1`
     color: hsl(0, 0%, 0%);
 `;
 
-export const Info = styled.p`
-    text-align: center;
-    font-size: 20px;
-    border-radius: 4px;
-    color: rgb(0, 0, 0);
-    display: inline-block;
-    margin-right: 5px;
-    padding: 10px;
-`;
-
 export const Loading = styled.p`
   color : ${({ theme }) => theme.color.black};
 `;

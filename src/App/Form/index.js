@@ -1,40 +1,41 @@
 import React, { useState } from "react";
 import { useRatesData } from "./useRatesData";
 import { Result } from "./Result";
+import Adnotation from "../Info.js";
 import {
     StyleForm,
     Button,
     Field,
     Header,
-    Info,
     LabelText,
     Loading,
     Fail,
 } from "./styled";
 
-
-const Form = () => {
-
-    const [result, setResult] = useState();
-    const { rates, state, date } = useRatesData();
-
-    const calculateResult = (currency, amount) => {
-        const rate = rates[currency].value;
-
-        setResult({
-            targetAmount: amount * rate,
-            currency,
-            date: new Date(date).toLocaleDateString("pl-PL"),
-        });
-    };
-
-    const [currency, setCurrency] = useState();
+export const Form = () => {
+    const [currency, setCurrency] = useState("EUR");
     const [amount, setAmount] = useState("");
+    const [result, setResult] = useState(null);
+    const ratesData = useRatesData();
 
     const onSubmit = (event) => {
         event.preventDefault();
         calculateResult(currency, amount);
-    }
+    };
+
+    const calculateResult = (currency, amount) => {
+        if (ratesData.data && ratesData.data[currency] && ratesData.data[currency].value) {
+            const rate = ratesData.data[currency].value;
+
+            setResult({
+                sourceAmount: +amount,
+                targetAmount: amount * rate,
+                currency,
+            });
+        } else {
+            console.error("Brak danych lub niepoprawna wartość waluty.");
+        }
+    };
 
     return (
         <StyleForm
@@ -42,14 +43,14 @@ const Form = () => {
             <Header>
                 Kantor Online
             </Header>
-            {state === "loading"
+            {ratesData.status === "loading"
                 ? (
                     <Loading>
                         Momencik...<br /> Ładujemy kursy walut
                     </Loading>
                 )
                 : (
-                    state === "error" ? (
+                    ratesData.status === "error" ? (
                         <Fail>
                             Coś nie działa, sprawdź połączenie z internetem
                         </Fail>
@@ -79,10 +80,11 @@ const Form = () => {
                                         Waluta :
                                     </LabelText>
                                     <Field
-                                        as="select" 
+                                        as="select"
+                                        value={currency}
                                         onChange={({ target }) => setCurrency(target.value)}
                                     >
-                                        {Object.keys(rates).map((currency => (
+                                        {Object.keys(ratesData.data).map((currency => (
                                             <option
                                                 key={currency}
                                                 value={currency}
@@ -98,10 +100,9 @@ const Form = () => {
                                     <span>Przelicz </span>
                                 </Button>
                             </p>
-                            <Info>
-                                Aktalne kursy walut ze strony nbp.pl z dnia 2023-08-16
-                            </Info>
-                            <p><strong></strong>
+                            <Adnotation />
+                            <p>
+                                <strong></strong>
                             </p>
 
                             <Result result={result} />
