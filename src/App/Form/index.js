@@ -79,6 +79,7 @@ const Form = () => {
                                         Waluta :
                                     </LabelText>
                                     <Field
+                                        as="select" 
                                         onChange={({ target }) => setCurrency(target.value)}
                                     >
                                         {Object.keys(rates).map((currency => (
