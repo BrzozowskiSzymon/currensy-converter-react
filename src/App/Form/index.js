@@ -1,17 +1,34 @@
 import React, { useState } from "react";
-import { currencies } from "../currencies";
+import { useRatesData } from "./useRatesData";
 import { Result } from "./Result";
-import { 
+import {
     StyleForm,
     Button,
     Field,
     Header,
     Info,
-    LabelText, 
+    LabelText,
+    Loading,
+    Fail,
 } from "./styled";
 
-export const Form = ({ calculateResult, result }) => {
-    const [currency, setCurrency] = useState(currencies[0].short);
+
+const Form = () => {
+
+    const [result, setResult] = useState();
+    const { rates, state, date } = useRatesData();
+
+    const calculateResult = (currency, amount) => {
+        const rate = rates[currency].value;
+
+        setResult({
+            targetAmount: amount * rate,
+            currency,
+            date: new Date(date).toLocaleDateString("pl-PL"),
+        });
+    };
+
+    const [currency, setCurrency] = useState();
     const [amount, setAmount] = useState("");
 
     const onSubmit = (event) => {
@@ -25,56 +42,74 @@ export const Form = ({ calculateResult, result }) => {
             <Header>
                 Kantor Online
             </Header>
-            <p>
-                <label>
-                    <LabelText>
-                        Kwota zł :
-                    </LabelText>
-                    <Field
-                        value={amount}
-                        onChange={({ target }) => setAmount(target.value)}
-                        placeholder="Wpisz kwote"
-                        className="form__field"
-                        type="number"
-                        required
-                        step="0.01"
-                        min="1"
-                    />
-                </label>
-            </p>
-            <p>
-                <label>
-                    <LabelText>
-                        Waluta :
-                    </LabelText>
-                    <Field
-                        as="select"
-                        value={currency}
-                        onChange={({ target }) => setCurrency(target.value)}
-                    >
-                        {currencies.map((currency => (
-                            <option
-                                key={currency.short}
-                                value={currency.short}
-                            >
-                                {currency.name}
-                            </option>
-                        )))}
-                    </Field>
-                </label>
-            </p>
-            <p>
-                <Button>
-                    <span>Przelicz </span>
-                </Button>
-            </p>
-            <Info>
-                Aktalne kursy walut ze strony nbp.pl z dnia 2023-08-16
-            </Info>
-            <p><strong></strong>
-            </p>
+            {state === "loading"
+                ? (
+                    <Loading>
+                        Momencik...<br /> Ładujemy kursy walut
+                    </Loading>
+                )
+                : (
+                    state === "error" ? (
+                        <Fail>
+                            Coś nie działa, sprawdź połączenie z internetem
+                        </Fail>
+                    ) : (
+                        <>
 
-            <Result result={result} />
+                            <p>
+                                <label>
+                                    <LabelText>
+                                        Kwota zł :
+                                    </LabelText>
+                                    <Field
+                                        value={amount}
+                                        onChange={({ target }) => setAmount(target.value)}
+                                        placeholder="Wpisz kwote"
+                                        type="number"
+                                        required
+                                        step="0.01"
+                                        min="1"
+                                        autoFocus
+                                    />
+                                </label>
+                            </p>
+                            <p>
+                                <label>
+                                    <LabelText>
+                                        Waluta :
+                                    </LabelText>
+                                    <Field
+                                        onChange={({ target }) => setCurrency(target.value)}
+                                    >
+                                        {Object.keys(rates).map((currency => (
+                                            <option
+                                                key={currency}
+                                                value={currency}
+                                            >
+                                                {currency}
+                                            </option>
+                                        )))}
+                                    </Field>
+                                </label>
+                            </p>
+                            <p>
+                                <Button>
+                                    <span>Przelicz </span>
+                                </Button>
+                            </p>
+                            <Info>
+                                Aktalne kursy walut ze strony nbp.pl z dnia 2023-08-16
+                            </Info>
+                            <p><strong></strong>
+                            </p>
+
+                            <Result result={result} />
+                        </>
+                    )
+                )
+            }
         </StyleForm >
     );
 };
+
+export default Form;

@@ -25,7 +25,7 @@ export const Field = styled.input`
     width: 100%;
     max-width: 350px;
     border-radius: 4px;
-`
+`;
 
 export const Button = styled.button`
   border-radius: 4px;
@@ -56,8 +56,7 @@ span {
   top: 0;
   right: -20px;
   transition: 0.5s;
-}
-}
+}}
 
 &:hover span {
   padding-right: 25px;
@@ -65,12 +64,7 @@ span {
   &:after {
   opacity: 1;
   right: 0;
-}
-}
-
-
-    
-`;
+}}`;
 
 export const Header = styled.h1`
     font-size: xx-large;
@@ -86,4 +80,12 @@ export const Info = styled.p`
     display: inline-block;
     margin-right: 5px;
     padding: 10px;
+`;
+
+export const Loading = styled.p`
+  color : ${({ theme }) => theme.color.black};
+`;
+
+export const Fail = styled.p`
+  color : ${({ theme }) => theme.color.red};
 `;
