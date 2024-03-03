@@ -5,6 +5,5 @@ export const fetchRatesData = async () => {
 	if (!response.ok) {
 		throw new Error(response.statusText);
 	}
-	const data = await response.json();
-	return data;
+	return await response.json();
 };
